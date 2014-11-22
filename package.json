@@ -8,7 +8,6 @@
   "devDependencies": {
     "istanbul-harmony": "*",
     "should": "*",
-    "mocha-lcov-reporter": "*",
     "mocha": "*"
   }
 }
