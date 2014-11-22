@@ -1,8 +1,9 @@
 {
   "name": "node-deepcopy",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "test": "mocha --recursive --timeout 15000 -R spec --require should test/ --bail",
+    "test-cov": "node node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha  -- -u exports --require should  --timeout 15000 --recursive test/ --bail",
     "test-travis": "node node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -u exports --require should  --timeout 15000  --recursive test/ --bail"
   },
   "devDependencies": {
