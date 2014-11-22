@@ -1,5 +1,5 @@
 node-deepcopy
-=============
+======
 
 [![Build Status](https://travis-ci.org/rockdragon/node-deepcopy.svg?branche=master)](https://travis-ci.org/rockdragon/node-deepcopy) [![Coverage Status](https://coveralls.io/repos/rockdragon/node-deepcopy/badge.png?branche=master)](https://coveralls.io/r/rockdragon/node-deepcopy) [![npm version](https://badge.fury.io/js/node-deepcopy.svg?branche=master)](http://badge.fury.io/js/node-deepcopy) [![Dependency Status](https://david-dm.org/rockdragon/node-deepcopy.svg?branche=master)](https://david-dm.org/rockdragon/node-deepcopy)
 
