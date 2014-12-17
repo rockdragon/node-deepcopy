@@ -1,5 +1,5 @@
 module.exports.isObject = isObject;
-module.exports.isObject = isObject;
+module.exports.isDate = isDate;
 module.exports.isString = isString;
 module.exports.isNumber = isNumber;
 module.exports.isFunction = isFunction;
@@ -27,7 +27,7 @@ function isNumber(obj) {
 function isFunction(obj) {
     return getObjectType(obj) === '[object Function]';
 }
-function isRegExp(obj){
+function isRegExp(obj) {
     return getObjectType(obj) === '[object RegExp]';
 }
 function deepCopy(obj) {
@@ -43,7 +43,7 @@ function deepCopy(obj) {
     else
         cloneObj = obj;
     for (var key in obj) {
-        if(obj.hasOwnProperty(key)) {
+        if (obj.hasOwnProperty(key)) {
             var child = obj[key];
             if (isObject(child) || isArray(child))
                 cloneObj[key] = deepCopy(child);
