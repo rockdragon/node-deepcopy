@@ -4,6 +4,8 @@ module.exports.isString = isString;
 module.exports.isNumber = isNumber;
 module.exports.isFunction = isFunction;
 module.exports.isRegExp = isRegExp;
+module.exports.isUndefined = isUndefined;
+module.exports.isBoolean = isBoolean;
 module.exports.deepCopy = deepCopy;
 
 function getObjectType(obj) {
@@ -30,6 +32,12 @@ function isFunction(obj) {
 function isRegExp(obj){
     return getObjectType(obj) === '[object RegExp]';
 }
+function isUndefined(obj){
+    return getObjectType(obj) === '[object Undefined]';
+}
+function isBoolean(obj){
+    return getObjectType(obj) === '[object Boolean]';
+}
 function deepCopy(obj) {
     var cloneObj = null;
     if (isArray(obj))
@@ -49,7 +57,9 @@ function deepCopy(obj) {
                 cloneObj[key] = deepCopy(child);
             else if (isNumber(child) ||
                 isString(child) ||
-                isFunction(child))
+                isFunction(child) ||
+                isUndefined(child) ||
+                isBoolean(child))
                 cloneObj[key] = child;
         }
     }

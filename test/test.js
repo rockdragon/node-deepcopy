@@ -1,9 +1,13 @@
 var copyUtils = require('../index');
 var deepCopy = copyUtils.deepCopy,
     isFunction = copyUtils.isFunction,
-    isRegExp = copyUtils.isRegExp;
+    isRegExp = copyUtils.isRegExp,
+    isUndefined = copyUtils.isUndefined,
+    isBoolean = copyUtils.isBoolean;
 var toValue = function(obj){
-    return isFunction(obj) || isRegExp(obj) ? obj.toString() : JSON.stringify(obj);
+    return isFunction(obj) || isRegExp(obj) || isBoolean(obj)
+        ? obj.toString()
+        : JSON.stringify(obj);
 };
 describe('deep copy of the Complex Object', function () {
     var foo = function () {
@@ -63,6 +67,19 @@ describe('deep copy of the Simple Object', function () {
         var cloned2 = deepCopy(h);
         cloned2 = new RegExp(/\d\+/gi);
         toValue(cloned2).should.not.equal(toValue(h));
+    });
+
+    it('equality of the Boolean', function(){
+        var h = false;
+        var cloned2 = deepCopy(true);
+        toValue(cloned2).should.not.equal(toValue(h));
+    });
+
+    it('equality of the Undefined', function(){
+        var h = undefined;
+        var cloned2 = deepCopy(h);
+        var t1 = typeof(cloned2), t2 = typeof(h);
+        t1.should.equal(t2);
     });
 });
 
