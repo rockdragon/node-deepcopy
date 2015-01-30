@@ -1,6 +1,6 @@
 {
   "name": "node-deepcopy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description" : "deep copy for any JavaScript object ",
   "main": "index.js",
   "scripts": {
