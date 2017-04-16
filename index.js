@@ -12,31 +12,34 @@ function getObjectType(obj) {
     return Object.prototype.toString.call(obj);
 }
 function isObject(obj) {
-    return getObjectType(obj) === '[object Object]';
+    return typeof obj === "object" && !!obj;
 }
 function isDate(obj) {
-    return getObjectType(obj) === '[object Date]';
+    return obj instanceof Date;
 }
 function isString(obj) {
-    return getObjectType(obj) === '[object String]';
+    return typeof obj === "string";
 }
-function isArray(obj) {
-    return getObjectType(obj) === '[object Array]';
+var isArray = Array.isArray || function(obj) {
+    return obj instanceof Array;
 }
 function isNumber(obj) {
-    return getObjectType(obj) === '[object Number]';
+    return typeof obj === "number";
 }
 function isFunction(obj) {
-    return getObjectType(obj) === '[object Function]';
+    return obj instanceof Function;
 }
 function isRegExp(obj) {
-    return getObjectType(obj) === '[object RegExp]';
+    return obj instanceof RegExp;
 }
 function isUndefined(obj){
-    return getObjectType(obj) === '[object Undefined]';
+    return obj === undefined;
+}
+function isNull(obj){
+    return obj === null;
 }
 function isBoolean(obj){
-    return getObjectType(obj) === '[object Boolean]';
+    return obj === true || obj === false;
 }
 function deepCopy(obj) {
     var cloneObj = null;
@@ -59,6 +62,7 @@ function deepCopy(obj) {
                 isString(child) ||
                 isFunction(child) ||
                 isUndefined(child) ||
+                isNull(child) ||
                 isBoolean(child))
                 cloneObj[key] = child;
         }
